@@ -1,5 +1,5 @@
 Summary:	IBM 3270 terminal emulator
-Summary(pl):	Emulator terminala IBM 3270
+Summary(pl.UTF-8):   Emulator terminala IBM 3270
 Name:		suite3270
 Version:	3.3.4p6
 Release:	1
@@ -44,29 +44,29 @@ x3270 is available in several different forms:
  - tcl3270 is similar to s3270, but integrated with Tcl
  - pr3287 is for printer emulation
 
-%description -l pl
-x3270 to emulator terminala IBM 3270. Dzia³a po po³±czeniu TELNET,
-emuluj±c terminal IBM 3279 (kolorowy) lub 3278 (monochromatyczny).
-Obs³uguje:
- - pe³ny protokó³ TN3270E
- - SSL/TLS (poprzez bibliotekê OpenSSL) do szyfrowanych sesji
+%description -l pl.UTF-8
+x3270 to emulator terminala IBM 3270. DziaÅ‚a po poÅ‚Ä…czeniu TELNET,
+emulujÄ…c terminal IBM 3279 (kolorowy) lub 3278 (monochromatyczny).
+ObsÅ‚uguje:
+ - peÅ‚ny protokÃ³Å‚ TN3270E
+ - SSL/TLS (poprzez bibliotekÄ™ OpenSSL) do szyfrowanych sesji
  - znaki APL2
- - ró¿ne zestawy znaków, w³±cznie z rosyjskim, tureckim, hebrajskim
-   oraz chiñskim i japoñskim DBCS
- - przesy³anie plików IND$FILE
- - tryb NVT (emulacjê terminala kolorowego)
- - wyskakuj±cy keypad do klawiszy specyficznych dla 3270
+ - rÃ³Å¼ne zestawy znakÃ³w, wÅ‚Ä…cznie z rosyjskim, tureckim, hebrajskim
+   oraz chiÅ„skim i japoÅ„skim DBCS
+ - przesyÅ‚anie plikÃ³w IND$FILE
+ - tryb NVT (emulacjÄ™ terminala kolorowego)
+ - wyskakujÄ…cy keypad do klawiszy specyficznych dla 3270
  - pasek przewijania
- - integracjê sesji drukarki
- - ¶ledzenie i skrypty.
+ - integracjÄ™ sesji drukarki
+ - Å›ledzenie i skrypty.
 
-Nie obs³uguje jeszcze grafiki.
+Nie obsÅ‚uguje jeszcze grafiki.
 
-x3270 jest dostêpny w kilku ró¿nych postaciach:
- - x3270 do u¿ywania na ekranie graficznym
- - c3270 to wersja oparta o curses do u¿ywania na prostym terminalu
+x3270 jest dostÄ™pny w kilku rÃ³Å¼nych postaciach:
+ - x3270 do uÅ¼ywania na ekranie graficznym
+ - c3270 to wersja oparta o curses do uÅ¼ywania na prostym terminalu
    (np. terminalu szeregowym lub konsoli linuksowej)
- - s3270 to wersja niewy¶wietlaj±ca, do pisania skryptów
+ - s3270 to wersja niewyÅ›wietlajÄ…ca, do pisania skryptÃ³w
  - tcl3270 to wersja podobna do s3270, ale zintegrowana z Tcl-em
  - pr3287 do emulacji drukarki.
 
