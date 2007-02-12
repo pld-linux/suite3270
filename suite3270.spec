@@ -1,5 +1,5 @@
 Summary:	IBM 3270 terminal emulator
-Summary(pl.UTF-8):   Emulator terminala IBM 3270
+Summary(pl.UTF-8):	Emulator terminala IBM 3270
 Name:		suite3270
 Version:	3.3.4p6
 Release:	1
