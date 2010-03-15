@@ -1,18 +1,22 @@
 Summary:	IBM 3270 terminal emulator
 Summary(pl.UTF-8):	Emulator terminala IBM 3270
 Name:		suite3270
-Version:	3.3.4p6
+Version:	3.3.10ga4
 Release:	1
 License:	MIT-like
 Group:		Applications/Terminal
-Source0:	http://x3270.bgp.nu/download/suite3270-334p6.tgz
-# Source0-md5:	127a8b7c376973b3cf18076d5ac7a7e0
+Source0:	http://x3270.bgp.nu/download/%{name}-%{version}-src.tgz
+# Source0-md5:	13d904e46cf7cea1dd9b0cdb5d1a3ebd
 URL:		http://x3270.bgp.nu/
-BuildRequires:	XFree86-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel >= 8.4
-BuildRequires:	tcl-devel < 8.5
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXmu-devel
+BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-proto-xproto-devel
 Requires(post,postun):	fontpostinst
 # better separate x3270 (the rest doesn't depend on X)
 Obsoletes:	x3270
@@ -86,11 +90,11 @@ cd ../s3270-3.3
 %configure
 %{__make}
 cd ../tcl3270-3.3
-%configure \
-	--with-tcl=8.4
+%configure
 %{__make}
 cd ../x3270-3.3
-%configure
+%configure \
+	--with-fontdir=%{_fontsdir}/misc
 %{__make} \
 	CDEBUGFLAGS="%{rpmcflags}"
 
