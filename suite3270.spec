@@ -2,7 +2,7 @@ Summary:	IBM 3270 terminal emulator
 Summary(pl.UTF-8):	Emulator terminala IBM 3270
 Name:		suite3270
 Version:	3.3.10ga4
-Release:	1
+Release:	2
 License:	MIT-like
 Group:		Applications/Terminal
 Source0:	http://x3270.bgp.nu/download/%{name}-%{version}-src.tgz
@@ -11,12 +11,15 @@ URL:		http://x3270.bgp.nu/
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel >= 8.4
+BuildRequires:	xorg-app-bdftopcf
+BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	xorg-proto-xproto-devel
+BuildRequires:	xorg-util-imake
 Requires(post,postun):	fontpostinst
 # better separate x3270 (the rest doesn't depend on X)
 Obsoletes:	x3270
@@ -101,19 +104,19 @@ cd ../x3270-3.3
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -C c3270-3.3 install \
+%{__make} -j1 -C c3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} -C pr3287-3.3 install \
+%{__make} -j1 -C pr3287-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} -C s3270-3.3 install \
+%{__make} -j1 -C s3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} -C tcl3270-3.3 install \
+%{__make} -j1 -C tcl3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} -C x3270-3.3 install \
+%{__make} -j1 -C x3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir}
 
