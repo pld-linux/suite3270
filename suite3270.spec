@@ -1,12 +1,12 @@
 Summary:	IBM 3270 terminal emulator
 Summary(pl.UTF-8):	Emulator terminala IBM 3270
 Name:		suite3270
-Version:	3.3.10ga4
-Release:	3
+Version:	3.3.11ga6
+Release:	1
 License:	MIT-like
 Group:		Applications/Terminal
 Source0:	http://x3270.bgp.nu/download/%{name}-%{version}-src.tgz
-# Source0-md5:	13d904e46cf7cea1dd9b0cdb5d1a3ebd
+# Source0-md5:	01d6d3809a457e6f6bd3731642e0c02d
 URL:		http://x3270.bgp.nu/
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
@@ -140,7 +140,12 @@ fontpostinst misc
 %files
 %defattr(644,root,root,755)
 %doc doc/*
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/c3270
+%attr(755,root,root) %{_bindir}/pr3287
+%attr(755,root,root) %{_bindir}/s3270
+%attr(755,root,root) %{_bindir}/tcl3270
+%attr(755,root,root) %{_bindir}/x3270
+%attr(755,root,root) %{_bindir}/x3270if
 %dir %{_sysconfdir}/x3270
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/x3270/ibm_hosts
-%{_fontsdir}/misc/*.pcf.gz
+%{_fontsdir}/misc/3270*.pcf.gz
