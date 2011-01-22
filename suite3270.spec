@@ -82,9 +82,10 @@ x3270 jest dostępny w kilku różnych postaciach:
 
 %build
 export ac_cv_lib_nsl_gethostbyname=no
-CPPFLAGS="-I/usr/include/ncurses"
+CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses"
 cd c3270-3.3
-%configure
+%configure \
+	LIBS="-ltinfow"
 %{__make}
 cd ../pr3287-3.3
 %configure
