@@ -1,12 +1,12 @@
 Summary:	IBM 3270 terminal emulator
 Summary(pl.UTF-8):	Emulator terminala IBM 3270
 Name:		suite3270
-Version:	3.3.12ga12
+Version:	3.3.12ga13
 Release:	1
 License:	MIT-like
 Group:		Applications/Terminal
 Source0:	http://x3270.bgp.nu/download/%{name}-%{version}-src.tgz
-# Source0-md5:	a782e5154d26e9a1960913c583d4e337
+# Source0-md5:	df11e3f16c0a6b2e5b1ddb3c46fb3f88
 URL:		http://x3270.bgp.nu/
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
