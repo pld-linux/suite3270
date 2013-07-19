@@ -7,6 +7,10 @@ License:	MIT-like
 Group:		Applications/Terminal
 Source0:	http://x3270.bgp.nu/download/%{name}-%{version}-src.tgz
 # Source0-md5:	df11e3f16c0a6b2e5b1ddb3c46fb3f88
+Source1:	x3270.png
+Source2:	x3270.desktop
+Patch0:		x3270-paths.patch
+Patch1:		ibmhostpath.patch
 URL:		http://x3270.bgp.nu/
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
@@ -79,13 +83,14 @@ x3270 jest dostępny w kilku różnych postaciach:
 
 %prep
 %setup -q -c
+%patch0 -p1
+%patch1 -p1
 
 %build
 export ac_cv_lib_nsl_gethostbyname=no
 CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses"
 cd c3270-3.3
-%configure \
-	LIBS="-ltinfow"
+%configure
 %{__make}
 cd ../pr3287-3.3
 %configure
@@ -104,6 +109,7 @@ cd ../x3270-3.3
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/{%{_desktopdir},%{_iconsdir}/hicolor/48x48/apps}
 
 %{__make} -j1 -C c3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -121,6 +127,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir}
 
+install -p %{SOURCE1} ${RPM_BUILD_ROOT}%{_iconsdir}/hicolor/48x48/apps
+install -p %{SOURCE2} $RPM_BUILD_ROOT/%{_desktopdir}
+
 rm -rf doc
 install -d doc/{c3270,pr3287,s3270,tcl3270,x3270}
 cp -a c3270-3.3/{LICENSE,README,html} doc/c3270
@@ -134,9 +143,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 fontpostinst misc
+%update_icon_cache hicolor
 
 %postun
 fontpostinst misc
+%update_icon_cache hicolor
 
 %files
 %defattr(644,root,root,755)
@@ -150,3 +161,5 @@ fontpostinst misc
 %dir %{_sysconfdir}/x3270
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/x3270/ibm_hosts
 %{_fontsdir}/misc/3270*.pcf.gz
+%{_iconsdir}/hicolor/48x48/apps/x3270.png
+%{_desktopdir}/x3270.desktop
