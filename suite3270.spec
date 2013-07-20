@@ -109,7 +109,7 @@ cd ../x3270-3.3
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_desktopdir},%{_iconsdir}/hicolor/48x48/apps}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_iconsdir}/hicolor/48x48/apps}
 
 %{__make} -j1 -C c3270-3.3 install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -127,8 +127,8 @@ install -d $RPM_BUILD_ROOT/{%{_desktopdir},%{_iconsdir}/hicolor/48x48/apps}
 	DESTDIR=$RPM_BUILD_ROOT \
 	BINDIR=%{_bindir}
 
-install -p %{SOURCE1} ${RPM_BUILD_ROOT}%{_iconsdir}/hicolor/48x48/apps
-install -p %{SOURCE2} $RPM_BUILD_ROOT/%{_desktopdir}
+install -p %{SOURCE1} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps
+install -p %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 rm -rf doc
 install -d doc/{c3270,pr3287,s3270,tcl3270,x3270}
